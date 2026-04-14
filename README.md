@@ -2,4 +2,74 @@
 
 ![Football_Injury_Dashboard](https://github.com/user-attachments/assets/f742edac-cd3a-4c2a-adac-f31c8416c8a0)
 
-A dynamic Excel dashboard analyzing 5 seasons of European football injuries
+## 📖 Project Overview
+This project is a comprehensive Excel Data Visualization tool designed to track and analyze injury trends across Europe’s "Big Five" leagues: **English Premier League**, **Spanish La Liga**, **German Bundesliga**, **Italian Serie A**, and **French Ligue 1**.
+By aggregating five seasons of data, the dashboard provides a high-level view of player availability, identifying which positions were most at risk, which months were the most severe, and which types of injuries were most prevalent in elite football.
+
+## ✨ Key Features
+- **Dynamic Interactive Dropdown**: Filter the entire dashboard instantly by Season, League, and Player Position
+- **Injury Trend Analysis**: A line chart visualizing the frequency of injuries per month to pinpoint high-risk periods in the football calendar
+- **Comparative Rankings**: Horizontal bar charts displaying total injuries by League and by Position in descending order
+- **Deep-Dive KPI Cards**:
+  - **Anatomy Profile**: Shows the most injured body part and its peak occurrence month
+  - **Player Spotlight**: Identifies the most injured player, their club, and total games missed
+  - **Injury Classification**: Highlights the most prominent injury type and its injury percentage
+ 
+## 🛠 Data Transformation & Logic (SQL & Excel)
+The original football injury data contained a lot of complex medical terminologies for the injuries, which could not be understood by non-medical personnel. A two-stage refinement process was thus performed to ensure the data was understandable and actionable.
+
+#### 1. SQL Categorization (Bucketing) 🗄️
+New created and updated columns in **SQL**, using WHERE function paired with wildcards, were used to map the injuries into standardized buckets. *ChatGPT was used to create the buckets for the injuries*
+
+  - **Body Part Bucketing**: Grouping specific ailments by the area affected (e.g., Hamstring, Ankle, Knee)
+``` SQL
+  UPDATE football_injury
+SET injured_body_part = 'Knee'
+WHERE injury LIKE '%Meniscus%' OR 
+        injury LIKE '%Patellar%' OR 
+        injury LIKE '%Cruciate%' OR 
+        injury LIKE '%Ligament%' OR 
+        injury LIKE '%Knee%' OR 
+        injury LIKE '%Arthroscopy%';
+
+UPDATE football_injury
+SET injured_body_part = 'Ankle'
+WHERE injury LIKE '%Syndes%' OR
+        injury LIKE '%Metatarsal%' OR
+        injury LIKE '%Ankle%' OR 
+        injury LIKE '%Tendon%';
+
+UPDATE football_injury
+SET injured_body_part = 'Foot'
+WHERE injury LIKE '%Metatarsal%' OR
+        injury LIKE '%Foot%' OR
+        injury LIKE '%Toe%' OR
+        injury LIKE '%Heel%' OR 
+        injury LIKE '%Arch%' OR 
+        injury LIKE '%Plantar%';
+```
+  - **Injury Classification**: Standardizing the type of injury (e.g., Strain, Tear, Fracture)
+``` SQL
+UPDATE football_injury
+SET injury_classification = 'Fracture'
+WHERE injury LIKE '%Fracture%' OR
+        injury LIKE '%Broken%' OR 
+        injury LIKE '%Crack%' OR
+        injury LIKE '%Fissure%';
+
+UPDATE football_injury
+SET injury_classification = 'Tear'
+WHERE injury LIKE '%Tear%' OR
+        injury LIKE '%Torn%' OR
+        injury LIKE '%Rupture%';
+```
+*Some of the injuries were ambiguous - the body part could not be determined from the injury (e.g., "Knock"), and the injury could not be placed in a certain type. Those injuries were labeled as "Unknown" (Body Part) or "Other" (Classification)*
+
+#### 2. Smart KPI Logic (Excel Engineering) 🧠
+In some scenarios, "Unknown" and "Other" could end up being the number 1 result. To prevent the dashboard from communicating nothing, I built a custom logic flow in Excel, such that the result presented is the next after "Unknown" or "Other", if the result is either of them.
+
+In some other scenarios, the month where a particular injury type or body part was most prominent could be more than 1. I wrote a function such that, should such be the case, the months were put together.
+
+![Excel Formula Screenshot](https://github.com/user-attachments/assets/85aacddf-dce5-4b59-b1dc-475cd83bae16)
+
+*While the card shows the next best category, the Percentage (%) Frequency displayed is still calculated against the entire dataset (including Unknowns). This ensures the metrics remain statistically honest while being visually useful.*
