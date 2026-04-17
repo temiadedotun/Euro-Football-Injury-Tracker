@@ -72,4 +72,24 @@ In some other scenarios, the month where a particular injury type or body part w
 
 ![Excel Formula Screenshot](https://github.com/user-attachments/assets/85aacddf-dce5-4b59-b1dc-475cd83bae16)
 
-*While the card shows the next best category, the Percentage (%) Frequency displayed is still calculated against the entire dataset (including Unknowns). This ensures the metrics remain statistically honest while being visually useful.*
+*While the card shows the next best category (if Unknown or Other), the Percentage (%) Frequency displayed is still calculated against the entire dataset (including Unknowns). This ensures the metrics remain statistically honest while being visually useful.*
+
+## 📊 Key Findings & Insights
+- January was the primary month for injury spikes across all playing positions, as well as the month where the most prominent injury classification was the highest. The most injured body part, on the other hand, had its highest level of prominence in February, the same month where Functional injuries (such as Fatigue, Stiffness, Pain, Contortion, etc) were the highest.
+
+- Defenders and strikers had the most injuries within the winter season (November - February). In Bundlesliga, they were also the most affected by thigh injuries. Midfielders had the most injuries within the first quarter of the calendar year.
+
+- Knee and Thigh were the most injured body parts, with high prominence in February and November respectively. In Bundlesliga and La Liga, Thigh injuries were the most prominent in March and November, and January and February, respectively, with Midfielders being the most affected in La Liga. Knee injuries were the most prominent in Ligue 1 and Premier League, in January and October, and December and February, with Goalkeepers, and Strikers and Midfielders being the the most affected, respectively.
+
+- Serie A had the most injuries that affected Internal organs and Lower leg.
+
+- Functional injuries were the most prominent injury classification.
+
+- June was the only month where the most prominent injury classification did not occur in.
+
+## 📝 Limitation
+- Some injuries lacked clear anatomical direction, so it was difficult to bucket them, resulting in about 25% of the injuries being classified as "Unknown/Other". The implication of this is that results such as the most injured body part and most prominent injury classification are missing a quarter of values.
+- Some of the findings beg certain questions that could be answered only with a more robust dataset. For example, *"Did the injury occur during a home or away game?"*; *"Did the injury occur while in training?"* 
+
+## Conclusion
+A simple approach was taken towards the user interface and experience of the dashboard. However, its application and relevance are anything but simple. For example, if a club knows that players at a certain position are at high risk in a certain month or season, they can justify rotation policies or investments in depth and quantity of players during the transfer window, or adjust their medical preventative training programs. For league organizers, seeing a consistent spike in a month provides empirical evidence for the necessity of breaks (real breaks, and not breaks where the players play for their countries) or changes in match scheduling to protect the players.
