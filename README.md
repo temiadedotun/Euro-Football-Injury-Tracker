@@ -85,11 +85,13 @@ In some other scenarios, the month where a particular injury type or body part w
 
 - Functional injuries were the most prominent injury classification.
 
-- June was the only month where the most prominent injury classification did not occur in.
+- June was the only month that did not have the most prominent injury classification.
 
 ## 📝 Limitation
 - Some injuries lacked clear anatomical direction, so it was difficult to bucket them, resulting in about 25% of the injuries being classified as "Unknown/Other". The implication of this is that results such as the most injured body part and most prominent injury classification are missing a quarter of values.
-- Some of the findings beg certain questions that could be answered only with a more robust dataset. For example, *"Did the injury occur during a home or away game?"*; *"Did the injury occur while in training?"* 
+- Some of the findings beg certain questions that can only be answered with a more robust dataset. For example, *"Did the injury occur during a home or away game?"*; *"Did the injury occur while in training?"* 
 
 ## Conclusion
 A simple approach was taken towards the user interface and experience of the dashboard. However, its application and relevance are anything but simple. For example, if a club knows that players at a certain position are at high risk in a certain month or season, they can justify rotation policies or investments in depth and quantity of players during the transfer window, or adjust their medical preventative training programs. For league organizers, seeing a consistent spike in a month provides empirical evidence for the necessity of breaks (real breaks, and not breaks where the players play for their countries) or changes in match scheduling to protect the players.
+
+In summary, data was not simply visualized. A solution that brings immediate visibility to decision makers was engineered.
