@@ -63,10 +63,12 @@ WHERE injury LIKE '%Tear%' OR
         injury LIKE '%Torn%' OR
         injury LIKE '%Rupture%';
 ```
+Check out full SQL bucketing [here](/SQL%20files/)
+
 *Some of the injuries were ambiguous - the body part could not be determined from the injury (e.g., "Knock"), and the injury could not be placed in a certain type. Those injuries were labeled as "Unknown" (Body Part) or "Other" (Classification)*
 
 #### 2. Smart KPI Logic (Excel Engineering) 🧠
-In some scenarios, "Unknown" and "Other" could end up being the number 1 result. To prevent the dashboard from communicating nothing, I built a custom logic flow in Excel, such that the result presented is the next after "Unknown" or "Other", if the result is either of them.
+In some scenarios, "Unknown" and "Other" could end up being the number 1 result. To prevent the dashboard from communicating nothing, a custom logic flow was engineered in Excel, such that the result presented is the next after "Unknown" or "Other", if the result is either of them.
 
 In some other scenarios, the month where a particular injury type or body part was most prominent could be more than 1. I wrote a function such that, should such be the case, the months were put together.
 
