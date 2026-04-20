@@ -4,7 +4,7 @@
 
 ## 📖 Project Overview
 This project is a comprehensive Excel Data Visualization tool designed to track and analyze injury trends across Europe’s "Big Five" leagues: **English Premier League**, **Spanish La Liga**, **German Bundesliga**, **Italian Serie A**, and **French Ligue 1**.
-By aggregating five seasons of data, the dashboard provides a high-level view of player availability, identifying which positions were most at risk, which months were the most severe, and which types of injuries were most prevalent in elite football.
+By aggregating five seasons of data, the dashboard provides a high-level view of player availability, identifying which positions were most at risk, which months were the most severe, and which types of injuries were most prevalent in elite football. 
 
 ## ✨ Key Features
 - **Dynamic Interactive Dropdown**: Filter the entire dashboard instantly by Season, League, and Player Position
@@ -14,6 +14,8 @@ By aggregating five seasons of data, the dashboard provides a high-level view of
   - **Anatomy Profile**: Shows the most injured body part and its peak occurrence month
   - **Player Spotlight**: Identifies the most injured player, their club, and total games missed
   - **Injury Classification**: Highlights the most prominent injury type and its injury percentage
+
+**For direct interaction with dashboard,** [open Excel file online](https://1drv.ms/x/c/67f00a1aada4f549/IQA4doi_gO93Tq5plKsHgOgKAR-r0QclcPG0_TiRtbg0iGQ?e=oZbc3D)
  
 ## 🛠 Data Transformation & Logic (SQL & Excel)
 The original football injury data contained a lot of complex medical terminologies for the injuries, which could not be understood by non-medical personnel. A two-stage refinement process was thus performed to ensure the data was understandable and actionable.
